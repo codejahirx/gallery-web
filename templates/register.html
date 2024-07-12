@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+<title>{% block title %} Register {% endblock title %}</title>
+
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6">
+                <h1>Register</h1>
+                <form action="" method="post" class="shadow-sm p-4 rounded">
+                    {% csrf_token %}
+                    {% for fm in form %}
+                        <div class="form-group">
+                            {{ fm.label_tag }}
+                            {{ fm }}
+                            {% if fm.errors %}
+                                <small class="text-danger">{{ fm.errors }}</small>
+                            {% endif %}
+                        </div>
+                        <br> <!-- Adds space between form elements -->
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Register</button>
+                </form><br>
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% endblock content %}

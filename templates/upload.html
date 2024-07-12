@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<title>{% block title %} Upload Album {% endblock title %}</title>
+
+{% block content %}
+    <h1>Upload Image</h1>
+    <form action="" method="post" enctype="multipart/form-data" class="p-3">
+    {% csrf_token %}
+    {% for fm in form %}
+        <div class="row mb-3">
+            <label for="{{ fm.id_for_label }}" class="col-sm-2 col-form-label">{{ fm.label }}</label>
+            <div class="col-sm-10">
+                {{ fm }}
+                {% if fm.errors %}
+                    <div class="text-danger">
+                        {{ fm.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock content %}

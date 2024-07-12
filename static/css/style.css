@@ -1,0 +1,51 @@
+.card {
+    border-radius: 10px;
+}
+
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text for contrast */
+    font-family: Arial, sans-serif;
+}
+
+/* Customize the container for additional padding and rounded corners */
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Style the footer */
+.footer {
+    background-color: #e9ecef; /* Light gray background */
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Style the navbar */
+.navbar {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff; /* White text */
+    
+}

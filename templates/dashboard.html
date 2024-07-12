@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %} Profile  {% endblock title %}</title>
+
+{% block content %}
+    <h1>Profile</h1>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <img src="{% static '/images/profile.jpg' %}" alt="Profile Image" width="200" height="200"
+                     class="profile-image">
+            </div>
+        </div>
+        <div class="row">
+            {% for alb in album %}
+                <div class="col-md-4">
+                    <div class="card m-4">
+                        <a href="{% url 'detail' alb.id %}">
+                            <img src="{{ alb.image.url }}" class="card-img-top" alt="{{ alb.title }}">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ alb.title }}</h5>
+                            <!-- Original and Offer Prices -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted me-2">
+                            $ <s>{{ alb.original_price }}</s>
+                        </span>
+                                <span class="text-success fw-bold">
+                            $ {{ alb.offer_price }}
+                        </span>
+                            </div>
+                            <!-- Delete button -->
+                            <div class="mt-auto">
+
+                                <a class="btn btn-outline-danger float-end" href="{% url 'delete' alb.id %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock content %}
+
